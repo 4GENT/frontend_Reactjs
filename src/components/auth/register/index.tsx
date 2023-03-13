@@ -17,7 +17,7 @@ const RegisterPage: React.FC<IPropsRegister> = (props: IPropsRegister): JSX.Elem
 				margin="normal"
 				label="Имя"
 				variant="outlined"
-				placeholder="Введите ваш Имя"
+				placeholder="Введите ваше имя"
 				onChange={(e) => setFirstName(e.target.value)}
 			/>
 			<TextField
@@ -62,8 +62,8 @@ const RegisterPage: React.FC<IPropsRegister> = (props: IPropsRegister): JSX.Elem
 				Регистрация
 			</Button>
 			<Typography variant="body1" sx={{ fontFamily: "Poppins" }}>
-				У вас есть аккаунт?
-				<span className="incitingText" onClick={() => navigate('/login')}>
+				У вас ecть аккаунта?
+				<span className="incitingText" onClick={() => navigate("/login")}>
 					Авторизация
 				</span>
 			</Typography>
