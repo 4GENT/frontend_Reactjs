@@ -38,7 +38,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 			</Button>
 			<Typography variant="body1" sx={{ fontFamily: "Poppins" }}>
 				У вас нет аккаунта?
-				<span className="incitingText" onClick={() => navigate('/register')}>
+				<span className="incitingText" onClick={() => navigate("/register")}>
 					Регистрация
 				</span>
 			</Typography>

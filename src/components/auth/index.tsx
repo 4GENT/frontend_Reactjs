@@ -46,8 +46,8 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 					await dispatch(login(newUser.data));
 					navigate("/");
 				} catch (e) {
-					console.log(e)
-					return e
+					console.log(e);
+					return e;
 				}
 			} else {
 				throw new Error(AppErrors.PasswordDoNotMatch);
