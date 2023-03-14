@@ -16,6 +16,9 @@ export const tokens = (mode: string) => ({
 					800: "#525252",
 					900: "#5C5C5C",
 				},
+				secondary: {
+					DEFAULT: "#7C7C7C",
+				},
 				black: {
 					DEFAULT: "#000000",
 					100: "#000000",
@@ -47,6 +50,9 @@ export const tokens = (mode: string) => ({
 					DEFAULT: "#FFFFFF",
 					600: "#F7F7F7",
 				},
+				secondary: {
+					DEFAULT: "#7C7C7C",
+				},
 				black: {
 					DEFAULT: "#000000",
 					100: "#525252",
@@ -76,6 +82,9 @@ export const themeSettings: any = (mode: string) => {
 						primary: {
 							main: colors.primary.DEFAULT,
 						},
+						secondary: {
+							main: colors.secondary.DEFAULT,
+						},
 						neutral: {
 							dark: colors.black[500],
 							light: colors.white[100],
@@ -83,7 +92,10 @@ export const themeSettings: any = (mode: string) => {
 				  }
 				: {
 						primary: {
-							main: colors.white.DEFAULT,
+							main: colors.primary.DEFAULT,
+						},
+						secondary: {
+							main: colors.secondary.DEFAULT,
 						},
 						neutral: {
 							dark: colors.black[500],
