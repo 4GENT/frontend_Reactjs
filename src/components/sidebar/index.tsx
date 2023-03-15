@@ -13,17 +13,11 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import {
-	HomeOutlined,
-	ChevronLeftOutlined,
-	ChevronRightOutlined,
-	AutoGraphOutlined,
-	MenuBookOutlined,
-	SettingsOutlined,
-	LogoutOutlined,
-} from "@mui/icons-material";
-import { useLocation, useNavigate } from "react-router";
+import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "../flex-between";
+import { navMenu } from "../../common/moks/navigate";
+import Logo from "../../assets/images/sidebar/logo.svg";
 
 const SideBarComponent = (props: any) => {
 	const [active, setActive] = useState("");
@@ -36,6 +30,21 @@ const SideBarComponent = (props: any) => {
 	useEffect(() => {
 		setActive(pathname.substring(1));
 	}, [pathname]);
+
+	const renderNavMenu = navMenu.map((element): JSX.Element => {
+		return (
+			<ListItem key={element.id}>
+				<ListItemButton onClick={() => navigate(`${element.path}`)} className={classes.navItem}>
+					<ListItemIcon>
+						{element.icon}
+						</ListItemIcon>
+					<ListItemText>
+						<Typography variant="body1">{element.name}</Typography>
+					</ListItemText>
+				</ListItemButton>
+			</ListItem>
+		);
+	});
 
 	return (
 		<Box component="nav">
@@ -55,19 +64,39 @@ const SideBarComponent = (props: any) => {
 						},
 					}}
 				>
-					<Box width="100%">
+					<Box className={classes.navBlock}>
 						<Box>
 							<FlexBetween>
-								<Box display="flex" alignItems="center" gap="10px">
-									<Typography>Demo</Typography>
+								<Box className={classes.brand}>
+									<img src={Logo} alt="Logo image" />
+									<Typography variant="h1" className={classes.brandTitle}>
+										Demo
+									</Typography>
 								</Box>
 								{!isNonMobile && (
-									<IconButton onClick={() => {setIsOpen(!isOpen)}}>
+									<IconButton onClick={() => setIsOpen(!isOpen)}>
 										<ChevronLeftOutlined />
 									</IconButton>
 								)}
 							</FlexBetween>
 						</Box>
+						<List className={classes.navList}>
+							{renderNavMenu}
+							</List>
+					</Box>
+					<Box width="100%">
+						<List>
+							<ListItem>
+								<ListItemButton className={classes.navItem}>
+									<ListItemIcon>
+										<LogoutOutlined />
+									</ListItemIcon>
+									<ListItemText>
+										<Typography>Logout</Typography>
+									</ListItemText>
+								</ListItemButton>
+							</ListItem>
+						</List>
 					</Box>
 				</Drawer>
 			)}
