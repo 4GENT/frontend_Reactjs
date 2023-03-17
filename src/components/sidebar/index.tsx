@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useStyles } from "./styles";
 import {
 	Box,
 	Drawer,
-	Divider,
 	IconButton,
 	List,
 	ListItem,
@@ -13,13 +12,14 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from "@mui/icons-material";
+import { ChevronLeftOutlined, LogoutOutlined } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "../flex-between";
 import { navMenu } from "../../common/moks/navigate";
 import Logo from "../../assets/images/sidebar/logo.svg";
+import { ISidebarProps } from "../../common/types/sidebar";
 
-const SideBarComponent = (props: any) => {
+const SideBarComponent: FC<ISidebarProps> = (props: ISidebarProps): JSX.Element => {
 	const [active, setActive] = useState("");
 	const { isNonMobile, drawerWidth, isOpen, setIsOpen } = props;
 	const classes = useStyles();
@@ -28,16 +28,14 @@ const SideBarComponent = (props: any) => {
 	const theme = useTheme();
 
 	useEffect(() => {
-		setActive(pathname.substring(1));
+		setActive(pathname);
 	}, [pathname]);
 
 	const renderNavMenu = navMenu.map((element): JSX.Element => {
 		return (
 			<ListItem key={element.id}>
-				<ListItemButton onClick={() => navigate(`${element.path}`)} className={classes.navItem}>
-					<ListItemIcon>
-						{element.icon}
-						</ListItemIcon>
+				<ListItemButton onClick={() => navigate(`${element.path}`)} className={active === element.path ? `${classes.navItem} ${classes.active}` : classes.navItem}>
+					<ListItemIcon>{element.icon}</ListItemIcon>
 					<ListItemText>
 						<Typography variant="body1">{element.name}</Typography>
 					</ListItemText>
@@ -80,9 +78,7 @@ const SideBarComponent = (props: any) => {
 								)}
 							</FlexBetween>
 						</Box>
-						<List className={classes.navList}>
-							{renderNavMenu}
-							</List>
+						<List className={classes.navList}>{renderNavMenu}</List>
 					</Box>
 					<Box width="100%">
 						<List>
