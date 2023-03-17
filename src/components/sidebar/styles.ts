@@ -5,8 +5,7 @@ import { tokens } from "../../theme";
 export const useStyles = makeStyles((theme: Theme) => {
 	const colors = tokens(theme.palette.mode);
 
-	return (
-		{
+	return {
 		navBlock: {
 			width: "100%",
 			borderBottom: `1px solid ${colors.borderColor}`,
@@ -31,9 +30,13 @@ export const useStyles = makeStyles((theme: Theme) => {
 				borderRadius: "4px",
 				"& .MuiSvgIcon-root": {
 					color: `${colors.white.DEFAULT} !important`,
-				}
-			}
-		}
-	}
-	)
+				},
+			},
+		},
+		active: {
+			backgroundColor: "#1900D5 !important",
+			color: "#fff !important",
+			borderRadius: '4px !important'
+		},
+	};
 });

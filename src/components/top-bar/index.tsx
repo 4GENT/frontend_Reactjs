@@ -1,23 +1,24 @@
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 import { AppBar, Box, Grid, IconButton, InputBase, Toolbar, useTheme, Typography } from "@mui/material";
 import { LightMode, DarkMode, Search, MenuOutlined } from "@mui/icons-material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { ColorModeContext } from "../../theme";
 import { useStyles } from "./styles";
 import FlexBetween from "../flex-between";
+import { ITopBarProps } from "../../common/types/topbar";
 
-const TopBarComponent = (props: any) => {
+const TopBarComponent: FC<ITopBarProps> = (props: ITopBarProps): JSX.Element => {
 	const theme = useTheme();
 	const colorMode: any = useContext(ColorModeContext);
 	const classes = useStyles();
-	const {setIsOpen, isOpen} = props;
+	const { setIsOpen, isOpen } = props;
 
 	return (
 		<AppBar className={classes.root} position="static">
 			<Toolbar className={classes.toolbar}>
 				<FlexBetween>
-					<MenuOutlined className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)}/>
-					<Typography variant='h3'>Welcome Alex</Typography>
+					<MenuOutlined className={classes.menuIcon} onClick={() => setIsOpen(!isOpen)} />
+					<Typography variant="h3">Welcome Alex</Typography>
 				</FlexBetween>
 				<Box display="flex">
 					<Grid onClick={colorMode.toggleColorMode} className={classes.iconBlock}>
