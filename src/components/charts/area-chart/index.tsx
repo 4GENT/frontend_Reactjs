@@ -32,6 +32,7 @@ const AreaChart = (props: IAreaChartProps) => {
     responsive: true,
     scales: {
       x: {
+        display: false,
         grid: {
           display: false,
         },
