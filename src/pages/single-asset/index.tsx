@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { Avatar, Button, Grid, Typography } from "@mui/material";
 import FlexBetween from "../../components/flex-between";
 import { useStyles } from "./styles";
-import { createWatchListRecord } from "../../store/thunks/assests";
+import { createWatchListRecord } from "../../store/thunks/assets";
 
 const SingleAssetPage: FC = (): JSX.Element => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTopPriceData, getFavoriteAssets } from "../../thunks/assests";
+import { getTopPriceData, getFavoriteAssets } from "../../thunks/assets";
 
 const initialState: any = {
   assets: [],

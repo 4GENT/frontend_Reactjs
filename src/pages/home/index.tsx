@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useMemo, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
-import { getFavoriteAssets, getTopPriceData } from "../../store/thunks/assests";
+import { getFavoriteAssets, getTopPriceData } from "../../store/thunks/assets";
 import { Box, Grid, Typography } from "@mui/material";
 import { useStyles } from "./styles";
 import AreaChart from "../../components/charts/area-chart";
