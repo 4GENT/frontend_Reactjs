@@ -1,8 +1,7 @@
-import { loginUser, registerUser } from "../../thunks/auth";
-import { IAuthState } from "./../../../common/types/auth/index";
+import { getPublicUser, loginUser, registerUser } from "../../thunks/auth";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: IAuthState = {
+const initialState: any = {
 	user: {
 		id: null,
 		firstName: "",
@@ -56,6 +55,9 @@ export const authSlice = createSlice({
 			state.isLogged = false;
 			state.isLoading = false;
 		});
+		builder.addCase(getPublicUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+    });
 	},
 });
 
