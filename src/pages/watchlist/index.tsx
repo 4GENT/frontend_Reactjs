@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hook";
 import { getWatchlistElements } from "../../store/thunks/watchlist";
 import { getTopPriceData } from "../../store/thunks/assets";
-import AssetsTableComponent from "../../components/assetsTale";
+import AssetsTableComponent from "../../components/assetsTable";
 import { Grid, Typography } from "@mui/material";
 import { useStyles } from "./styles";
 
@@ -10,7 +10,7 @@ const WatchlistPage = () => {
   const dispatch = useAppDispatch();
   const watchlist = useAppSelector((state) => state.watchlist.assets);
   const { assets } = useAppSelector((state) => state.assets);
-  const classes = useStyles()
+  const classes = useStyles();
 
   useEffect(() => {
     dispatch(getTopPriceData());
@@ -22,8 +22,6 @@ const WatchlistPage = () => {
       return otherElement.assetId === element.id;
     });
   });
-
-  console.log(filteredArray);
 
   return (
     <Grid className={classes.root}>
