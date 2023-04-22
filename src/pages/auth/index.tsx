@@ -46,7 +46,6 @@ const AuthRootPage: React.FC = (): JSX.Element => {
 					await dispatch(registerUser(userData));
 					navigate("/");
 				} catch (e) {
-					console.log(e);
 					return e;
 				}
 			} else {
