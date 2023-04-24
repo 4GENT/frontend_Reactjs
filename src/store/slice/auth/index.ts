@@ -1,27 +1,11 @@
+import { IAuthState } from "../../../common/types/auth";
 import { getPublicUser, loginUser, registerUser } from "../../thunks/auth";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = {
-	user: {
-		id: null,
-		firstName: "",
-		username: "",
-		email: "",
-		createdAt: "",
-		updatedAt: "",
-		watchlist: [
-			{
-				id: null,
-				name: "",
-				assetId: "",
-				createdAt: "",
-				updatedAt: "",
-				user: null,
-			},
-		],
-	},
-	isLogged: false,
-	isLoading: false,
+const initialState: IAuthState = {
+  user: [],
+  isLogged: false,
+  isLoading: false,
 };
 
 export const authSlice = createSlice({
